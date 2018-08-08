@@ -23,4 +23,9 @@ public class ProductServerImpl implements ProductServer {
     public List<ProductInfo> findUp() {
         return productInfoRepository.findByProductStatus(ProductStatusEnum.UP.getCode());
     }
+
+    @Override
+    public List<ProductInfo> findByProductIdIn(List<String> productIdList) {
+        return productInfoRepository.findByProductIdIn(productIdList);
+    }
 }

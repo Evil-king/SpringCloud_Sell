@@ -16,4 +16,11 @@ public interface ProductServer {
 
     List<ProductInfo> findUp();
 
+    /**
+     * 查询商品列表
+     * @param productIdList
+     * @return
+     */
+    List<ProductInfo> findByProductIdIn(List<String> productIdList);
+
 }

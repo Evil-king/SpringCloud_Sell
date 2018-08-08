@@ -9,9 +9,7 @@ import com.hwq.product.server.ProductCategoryServer;
 import com.hwq.product.server.ProductServer;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,5 +67,16 @@ public class ProductController {
         resultVO.setMsg("成功");
         resultVO.setData(productVOList);
         return resultVO;
+    }
+
+    /**
+     * 获取商品列表(给订单服务用的)
+     * @param productList
+     * @return
+     */
+    @PostMapping("/listForOrder")
+    public List<ProductInfo> listForOrder(@RequestBody List<String> productList){
+
+        return productServer.findByProductIdIn(productList);
     }
 }
