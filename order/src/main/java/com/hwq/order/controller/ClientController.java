@@ -1,8 +1,8 @@
 package com.hwq.order.controller;
 
-import com.google.gson.JsonObject;
 import com.hwq.order.client.ProductClient;
 import com.hwq.order.dataobject.ProductInfo;
+import com.hwq.order.dto.CarDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,6 +33,12 @@ public class ClientController {
     public String getProduntList(){
         List<ProductInfo> productInfoList = productClient.listForOrder(Arrays.asList("164103465734242707"));
         log.info("productInfoList={}", productInfoList);
+        return  "Ok";
+    }
+
+    @GetMapping("/productDecreaseStock")
+    public String productDeceaseStock(){
+        productClient.decreaseStock(Arrays.asList(new CarDTO("164103465734242707",3)));
         return  "Ok";
     }
 }

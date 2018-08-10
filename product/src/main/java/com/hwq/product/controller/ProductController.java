@@ -1,5 +1,6 @@
 package com.hwq.product.controller;
 
+import com.hwq.product.dto.CarDTO;
 import com.hwq.product.VO.ProductInfoVO;
 import com.hwq.product.VO.ProductVO;
 import com.hwq.product.VO.ResultVO;
@@ -78,5 +79,14 @@ public class ProductController {
     public List<ProductInfo> listForOrder(@RequestBody List<String> productList){
 
         return productServer.findByProductIdIn(productList);
+    }
+
+    /**
+     * 扣减库存
+     * @param carDTOList
+     */
+    @PostMapping("/decreaseStock")
+    public void decreaseStock(@RequestBody List<CarDTO> carDTOList){
+        productServer.decreaseStock(carDTOList);
     }
 }

@@ -2,8 +2,13 @@ package com.hwq.order.dto;
 
 import lombok.Data;
 
+/**
+ * @author hwq
+ * @date 2018/08/09
+ */
 @Data
-public class CartDTO {
+public class CarDTO {
+
     /**
      * 商品id
      */
@@ -14,10 +19,10 @@ public class CartDTO {
      */
     private Integer productQuantity;
 
-    public CartDTO() {
+    public CarDTO() {
     }
 
-    public CartDTO(String productId, Integer productQuantity) {
+    public CarDTO(String productId, Integer productQuantity) {
         this.productId = productId;
         this.productQuantity = productQuantity;
     }

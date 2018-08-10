@@ -1,5 +1,6 @@
 package com.hwq.product.server;
 
+import com.hwq.product.dto.CarDTO;
 import com.hwq.product.dataobject.ProductInfo;
 
 import java.util.List;
@@ -22,5 +23,11 @@ public interface ProductServer {
      * @return
      */
     List<ProductInfo> findByProductIdIn(List<String> productIdList);
+
+    /**
+     * 扣库存
+     * @param carDTOList
+     */
+    void decreaseStock(List<CarDTO> carDTOList);
 
 }
